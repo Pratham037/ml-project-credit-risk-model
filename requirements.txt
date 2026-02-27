@@ -5,3 +5,4 @@ numpy
 scikit-learn
 xgboost
 altair==4.2.2
+standard-imghdr
