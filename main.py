@@ -3,6 +3,95 @@ from prediction_helper import predict
 
 st.title("Laxmi Finance: Credit Risk Modelling")
 
+
+st.sidebar.title("Credit Risk Guide")
+
+st.sidebar.markdown("""
+### Applicant Details
+
+**Age**
+- Age of loan applicant.
+- Helps estimate financial stability.
+
+**Income**
+- Annual income of applicant.
+- Higher income improves repayment ability.
+
+---
+
+### Loan Information
+
+**Loan Amount**
+- Total requested loan amount.
+
+**Loan Tenure**
+- Time allowed to repay loan (months).
+
+**Loan to Income Ratio**
+- Loan Amount ÷ Income.
+- Higher ratio means higher repayment burden.
+
+---
+
+### Credit Behaviour
+
+**Avg DPD (Days Past Due)**
+- Average delay in past loan payments.
+- Higher value indicates risky behaviour.
+
+**Delinquency Ratio**
+- Percentage of delayed or missed payments.
+
+**Credit Utilization Ratio**
+- Credit used compared to available credit limit.
+- Above 70% indicates financial stress.
+
+**Open Loan Accounts**
+- Number of currently active loans.
+
+---
+
+### Residence Information
+
+**Residence Type**
+- Owned → Lower risk  
+- Rented → Moderate risk  
+- Mortgage → Existing liability
+
+---
+
+### Loan Details
+
+**Loan Purpose**
+- Education
+- Home
+- Auto
+- Personal
+
+Different purposes carry different risk levels.
+
+**Loan Type**
+- Secured → Backed by collateral.
+- Unsecured → Higher default probability.
+
+---
+
+### Model Output
+
+**Default Probability**
+- Chance of loan default (0–1).
+
+**Credit Score**
+- Range: 300 – 900.
+- Higher score = safer borrower.
+
+**Rating**
+- Poor
+- Average
+- Good
+- Excellent
+""")
+
 row1 = st.columns(3)
 row2 = st.columns(3)
 row3 = st.columns(3)
@@ -26,7 +115,7 @@ with row2[2]:
     avg_dpd_per_deliquency = st.number_input('Avg DPD', min_value=0, value=20)
 
 with row3[0]:
-    delinquent_ratio = st.number_input("Delinquency Ratio", min_value=0, max_value=100,step=1,value=30)
+    delinquent_ratio = st.number_input("Delinquent Ratio", min_value=0, max_value=100,step=1,value=30)
 with row3[1]:
     credit_utilization_ratio = st.number_input("Credit Utilization Ratio", min_value=0, max_value=100,step=1,value=30)
 with row3[2]:
