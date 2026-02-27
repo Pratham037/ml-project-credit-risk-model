@@ -4,4 +4,4 @@ streamlit
 numpy
 scikit-learn
 xgboost
-altair
+altair==4.2.2
