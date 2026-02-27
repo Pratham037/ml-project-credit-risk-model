@@ -2,18 +2,31 @@ import joblib
 import numpy as np
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
+import streamlit as st
 
 import os
 
 MODEL_PATH = os.path.join("artifacts", "model_data.joblib")
 
 
-model_data = joblib.load(MODEL_PATH)
-model = model_data['model']
-scaler = model_data['scaler']
-features = model_data['features']
-cols_to_scale = model_data['cols_to_scale']
+# model_data = joblib.load(MODEL_PATH)
+# model = model_data['model']
+# scaler = model_data['scaler']
+# features = model_data['features']
+# cols_to_scale = model_data['cols_to_scale']
 
+@st.cache_resource
+def load_model():
+    model_data = joblib.load(MODEL_PATH)
+
+    return (
+        model_data['model'],
+        model_data['scaler'],
+        model_data['features'],
+        model_data['cols_to_scale']
+    )
+
+model, scaler, features, cols_to_scale = load_model()
 
 def prepare_input(age, income, loan_amount, loan_tenure_months, avg_dpd_per_deliquency,
             delinquent_ratio, credit_utilization_ratio, num_open_accounts,

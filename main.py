@@ -128,13 +128,36 @@ with row4[1]:
 with row4[2]:
     loan_type = st.selectbox('Loan Type', ['Unsecured','Secured'])
 
-if st.button("Calculate Risk"):
-    probability, credit_score, rating = predict(age, income, loan_amount, loan_tenure_months, avg_dpd_per_deliquency,
-                                                delinquent_ratio, credit_utilization_ratio, num_open_accounts,
-                                                residence_type,loan_purpose, loan_type)
+# if st.button("Calculate Risk"):
+#     probability, credit_score, rating = predict(age, income, loan_amount, loan_tenure_months, avg_dpd_per_deliquency,
+#                                                 delinquent_ratio, credit_utilization_ratio, num_open_accounts,
+#                                                 residence_type,loan_purpose, loan_type)
+#
+#     st.write(f"Default Probability: {probability:.2f}")
+#     st.write(f"Credit Score: {credit_score}")
+#     st.write(f"Rating: {rating}")
+
+calculate = st.button("Calculate Risk")
+
+if calculate:
+
+    probability, credit_score, rating = predict(
+        age,
+        income,
+        loan_amount,
+        loan_tenure_months,
+        avg_dpd_per_deliquency,
+        delinquent_ratio,
+        credit_utilization_ratio,
+        num_open_accounts,
+        residence_type,
+        loan_purpose,
+        loan_type
+    )
+
+    st.success("Prediction Updated ✅")
 
     st.write(f"Default Probability: {probability:.2f}")
     st.write(f"Credit Score: {credit_score}")
     st.write(f"Rating: {rating}")
-
 
