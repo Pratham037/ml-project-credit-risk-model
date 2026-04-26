@@ -133,7 +133,8 @@ streamlit run main.py
 
 ## 📷 Application Preview
 
-(Add screenshots here after deployment)
+<img width="1887" height="861" alt="Screenshot 2026-04-26 224416" src="https://github.com/user-attachments/assets/b02c07d9-c82b-405f-ac3e-ec6dc63378b9" />
+
 
 ---
 
